@@ -16,7 +16,7 @@ sessionsRoutes.post('/', async (req, res) => {
     delete user.password;
     return res.json({ user, token });
   } catch (err) {
-    return res.status(400).json({ error: err.message });
+    return res.status(err.statusCode).json({ error: err.message });
   }
 });
 
